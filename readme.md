@@ -3,23 +3,23 @@
 ### Development
 
 ```bash
-npm run dev
+npm run start
 ```
 
 ### Running tests
 
 ```bash
-npm test
+npm test #tests has not defined yet
 ```
 
 ### Linting
 
 ```bash
-npm run lint
+npm run prebuild
 ```
 
 ### Building a container
 
 ```bash
-docker build .
+docker build . #docker has not defined yet
 ```
