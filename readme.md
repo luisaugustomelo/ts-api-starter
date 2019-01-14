@@ -9,7 +9,7 @@ npm run start
 ### Running tests
 
 ```bash
-npm test #tests has not defined yet
+npm test
 ```
 
 ### Linting
