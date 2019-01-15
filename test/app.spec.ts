@@ -1,6 +1,5 @@
 import { request } from './request'
 import 'jest-extended'
-import { Exception } from 'handlebars';
 
 describe('indexController', () => {
   it('GET /v1/', async () => {

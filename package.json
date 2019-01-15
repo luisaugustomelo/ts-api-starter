@@ -2,7 +2,7 @@
   "name": "ts-api-starter-master",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
+  "main": "dist/server.js",
   "scripts": {
     "prebuild": "./node_modules/.bin/tslint -c tslint.json -p tsconfig.json --fix",
     "build": "tsc",
@@ -15,13 +15,16 @@
   "author": "Luis Augusto Melo Rohten",
   "license": "MIT",
   "dependencies": {
+    "@types/dotenv": "^6.1.0",
     "@types/express": "^4.16.0",
     "@types/jest": "^23.3.12",
     "@types/node": "^10.12.18",
+    "body-parser": "^1.18.3",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "jest": "^23.6.0",
     "jest-extended": "^0.11.0",
+    "path": "^0.12.7",
     "ts-jest": "^23.10.5",
     "typescript": "^3.2.2"
   },
