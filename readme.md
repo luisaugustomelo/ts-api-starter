@@ -1,21 +1,27 @@
 ## Skeleton for Node.js applications written in TypeScript
 
+### Linting
+
+```bash
+npm run prebuild #first step
+```
+
+### Building app
+
+```bash
+npm run build #second step
+```
+
 ### Development
 
 ```bash
-npm run start
+npm run start #thrid step
 ```
 
 ### Running tests
 
 ```bash
 npm test
-```
-
-### Linting
-
-```bash
-npm run prebuild
 ```
 
 ### Building a container
