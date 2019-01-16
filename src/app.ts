@@ -36,12 +36,6 @@ class App {
       res.status(404);
       res.send("Page not found! :-)");
     });
-  }
-
-  private routes(): void {
-    // get router
-    let router: express.Router;
-    router = express.Router();
 
     // options for cors midddleware
     const options: cors.CorsOptions = {
@@ -52,10 +46,13 @@ class App {
       preflightContinue: false
     };
 
-    // use cors middleware
-    router.use(cors(options));
+    this.app.use(cors(options))
+  }
 
-    // write your routes below
+  private routes(): void {
+    // get router
+    let router: express.Router;
+    router = express.Router();
 
     // definition local routes
     router.get("/", (req, res) => {
@@ -73,9 +70,6 @@ class App {
 
     // home page of address /index
     router.get("/index", index.index.bind(index.index));
-
-    // enable pre-flight
-    router.options("*", cors(options));
 
     // instance all routers enable
     this.app.use(router);
