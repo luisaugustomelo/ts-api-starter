@@ -1,9 +1,9 @@
-import * as bodyParser from "body-parser";
+import bodyParser from "body-parser";
 import cors from "cors";
 import express from "express";
-import * as path from "path";
+import path from "path";
 
-import * as indexRoute from "./routes/index";
+import indexRoute from "./routes/index";
 
 class App {
   public app: express.Application;
@@ -22,9 +22,6 @@ class App {
 
   
   private config(): void {
-    // mount logger
-    // this.app.use(logger("dev"));
-
     // mount json form parser
     this.app.use(bodyParser.json());
 

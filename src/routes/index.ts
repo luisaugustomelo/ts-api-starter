@@ -15,4 +15,4 @@ namespace Route {
   }
 }
 
-export = Route;
+export default Route;

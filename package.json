@@ -27,7 +27,6 @@
     "express": "^4.16.4",
     "jest": "^23.6.0",
     "jest-extended": "^0.11.0",
-    "logger": "^0.0.1",
     "path": "^0.12.7",
     "ts-jest": "^23.10.5",
     "tslint-config-prettier": "^1.17.0",
