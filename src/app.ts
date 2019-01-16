@@ -1,27 +1,17 @@
 import * as bodyParser from "body-parser";
+import cors from "cors";
 import express from "express";
 import * as path from "path";
 
 import * as indexRoute from "./routes/index";
 
 class App {
-
-  /**
-   * Bootstrap the application.
-   *
-   * @class Server
-   * @method bootstrap
-   * @static
-   */
-  public static bootstrap(): App {
-    return new App();
-  }
   public app: express.Application;
 
   /**
    * Constructor.
    *
-   * @class Server
+   * @class App
    * @constructor
    */
   constructor() {
@@ -36,9 +26,20 @@ class App {
   }
 
   /**
+   * Bootstrap the application.
+   *
+   * @class App
+   * @method bootstrap
+   * @static
+   */
+  public static bootstrap(): App {
+    return new App();
+  }
+
+  /**
    * Configure application
    *
-   * @class Server
+   * @class App
    * @method config
    * @return void
    */
@@ -58,7 +59,7 @@ class App {
     // catch 404 and forward to error handler
     this.app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
       res.status(404);
-      res.send("Página não encontrada");
+      res.send("Page not found! :-)");
     });
   }
 
@@ -67,6 +68,21 @@ class App {
     let router: express.Router;
     router = express.Router();
 
+    // options for cors midddleware
+    const options: cors.CorsOptions = {
+      allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "X-Access-Token"],
+      credentials: true,
+      methods: "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
+      origin: process.env.API_URL || "localhost",
+      preflightContinue: false
+    };
+
+    // use cors middleware
+    router.use(cors(options));
+
+    // write your routes below
+
+    // definition local routes
     router.get("/", (req, res) => {
       res.json({
         message: "Hello World!"
@@ -77,12 +93,16 @@ class App {
       res.send("Hello! I am a home page!");
     });
 
-    // create routes
+    // create routes by routing
     const index: indexRoute.Index = new indexRoute.Index();
 
-    // home page
-    router.get("/", index.index.bind(index.index));
+    // home page of address /index
+    router.get("/index", index.index.bind(index.index));
 
+    // enable pre-flight
+    router.options("*", cors(options));
+
+    // instance all routers enable
     this.app.use(router);
   }
 }

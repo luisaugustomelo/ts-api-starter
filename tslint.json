@@ -1,13 +1,22 @@
 {
-  "defaultSeverity": "error",
-  "extends": [
-      "tslint:recommended"
-  ],
-  "jsRules": {},
-  "rules": {
-      "trailing-comma": [ false ],
+    "defaultSeverity": "error",
+    "extends": [
+      "tslint:recommended",
+      "tslint-config-standard",
+      "tslint-config-prettier"
+    ],
+    "jsRules": {},
+    "rules": {
+      "interface-name": false,
+      "object-literal-sort-keys": false,
+      "member-ordering": [true, { "order": "fields-first" }],
+      "space-before-function-paren": false,
+      "await-promise": false,
+      "only-arrow-functions": false,
+      "indent": false,
       "no-console": false,
-      "no-namespace": false
-  },
-  "rulesDirectory": []
-}
+      "no-namespace": false,
+      "strict-type-predicates": false
+    },
+    "rulesDirectory": []
+  }
