@@ -1,15 +1,17 @@
 import app from '../src/app'
 import supertest from 'supertest'
-import * as env from "../src/utils/config";
+import "../src/utils/config";
+
+const port = process.env.PORT || 3000;
 
 export const request = supertest(
-  app.listen(env.PORT, 
+  app.listen(port, 
     (err: any) => {
       if (err) {
         return console.log(err);
       }
 
-      return console.log(`server is listening on ${env.PORT}}`);
+      return console.log(`server is listening on ${port}}`);
     }
   )
 )

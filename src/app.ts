@@ -8,41 +8,19 @@ import * as indexRoute from "./routes/index";
 class App {
   public app: express.Application;
 
-  /**
-   * Constructor.
-   *
-   * @class App
-   * @constructor
-   */
   constructor() {
-    // create expressjs application
+    // create expressjs application, configure routes and application
     this.app = express();
-
-    // configure routes
     this.routes();
-
-    // configure application
     this.config();
   }
 
-  /**
-   * Bootstrap the application.
-   *
-   * @class App
-   * @method bootstrap
-   * @static
-   */
+  
   public static bootstrap(): App {
     return new App();
   }
 
-  /**
-   * Configure application
-   *
-   * @class App
-   * @method config
-   * @return void
-   */
+  
   private config(): void {
     // mount logger
     // this.app.use(logger("dev"));

@@ -4,4 +4,4 @@ package-lock.json
 dist
 npm-debug.log
 yarn-error.log
-yarn-lock
+yarn.lock

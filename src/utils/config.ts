@@ -15,7 +15,3 @@ switch (process.env.NODE_ENV) {
 }
 
 dotenv.config({ path });
-
-export const APP_ID = process.env.APP_ID;
-export const LOG_LEVEL = process.env.LOG_LEVEL;
-export const PORT = process.env.PORT;

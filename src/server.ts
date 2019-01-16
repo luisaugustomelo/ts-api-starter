@@ -1,8 +1,9 @@
 import colors from "colors";
 import app from "./app";
-import * as env from "./utils/config";
 
-const port = env.PORT || 3000;
+import "./utils/config";
+
+const port = process.env.PORT || 3000;
 
 app.listen(port,
   (err: any) => {
@@ -10,9 +11,11 @@ app.listen(port,
       return console.log(err);
     }
 
-    return console.log( colors.yellow(`Server is listening on port: `) +
-                        colors.red(`${port}`) + " - " +
-                        colors.green("OK!")
-                      );
+    console.log('porta: ' + process.env.PORT)
+    return console.log( 
+      colors.yellow(`Server is listening on port: `) +
+      colors.red(`${port}`) + " - " +
+      colors.green("OK!")
+    );
   }
 );
