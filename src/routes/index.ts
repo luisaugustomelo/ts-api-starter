@@ -10,7 +10,7 @@ namespace Route {
       req: express.Request, 
       res: express.Response, 
       next: express.NextFunction) {
-        res.send("I am a index page");
+        res.send("Hello World!");
     }
   }
 }
