@@ -3,8 +3,9 @@ import cors from "cors"
 import express from "express";
 import path from "path";
 
-import corsOptions from "/utils/cors"
+import {errorhandler} from "./middleware/errorhandler";
 import indexRoute from "./routes/index";
+import corsOptions from "./utils/cors";
 
 class App {
   public app: express.Application;
@@ -32,12 +33,14 @@ class App {
     // add static paths
     this.app.use(express.static(path.join(__dirname, "public")));
 
+    this.app.use(errorhandler)
     // catch 404 and forward to error handler
-    this.app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
+    /*this.app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
+      console.log('StatusCode: ' + res.statusCode)
       const e: Error = new Error('Page Not Found!');
       res.status(404);
       next(e);
-    });
+    });*/
 
     this.app.use(cors(corsOptions))
   }
