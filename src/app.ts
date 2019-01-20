@@ -22,7 +22,6 @@ class App {
     return new App();
   }
 
-  
   private config(): void {
     // mount json form parser
     this.app.use(bodyParser.json());
@@ -38,13 +37,6 @@ class App {
     this.app.use(errorhandler.unauthorizedError)
     this.app.use(errorhandler.forbiddenError)
     this.app.use(errorhandler.serverError)
-    // catch 404 and forward to error handler
-    /*this.app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
-      console.log('StatusCode: ' + res.statusCode)
-      const e: Error = new Error('Page Not Found!');
-      res.status(404);
-      next(e);
-    });*/
 
     this.app.use(cors(corsOptions))
   }
