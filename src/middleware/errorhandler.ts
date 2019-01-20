@@ -1,36 +1,71 @@
-import { NextFunction, Request, Response } from 'express';
-import { HttpError, NotFoundError } from "../utils/error"
+//import { HttpError, NotFoundError } from "../error"
+import { Request, Response, NextFunction } from 'express';
+import colors from 'colors'
 
+function notFound(req: Request, res: Response, next: NextFunction) {
+  res.status(404)
 
-export async function errorhandler(req: Request, res: Response, next: NextFunction) {
-  try {
-    await next()
-    
-    console.log('statusCode: ' + res.statusCode)
-    
-    if (res.statusCode && res.statusCode === 404) {
-      throw new NotFoundError()
-    }
-  } catch (err) {
-    /* istanbul ignore else */
+  res.send({
+    status: 404,
+    success: false,
+    message: 'Resource not found'
+  })
+}
 
-    // Hey, I know this error
-    if (err instanceof HttpError) {
-      res.statusCode = err.status
+function validationError(err: any,req: Request, res: Response, next: NextFunction) {
+  let { status, message } = err
 
-      /*res.body = {
-        message: err.message,
-        code: err.code,
-      }*/
-    } /*else {
-      // Hmmm, this one is new
+  if (!message) message = 'Validation Error'
 
-      res.statusCode = 500
-
-      res.body = {
-        message: 'Internal Server Error',
-        code: 'E_SERVER',
-      }
-    }*/
+  if (!status || status !== 422) {
+    return next(err)
+  } else {
+    res.status(status)
+    res.send({ status, message, success: false })
   }
+}
+
+function unauthorizedError(err: any, req: Request, res: Response, next: NextFunction) {
+  let { status, message } = err
+
+  if (!message) message = 'Unauthorized'
+
+  if (!status || status !== 401) {
+    return next(err)
+  } else {
+    res.status(status)
+    res.send({ status, message, success: false })
+  }
+}
+
+function forbiddenError(err: any, req: Request, res: Response, next: NextFunction) {
+  let { status, message } = err
+
+  if (!message) message = 'Forbidden'
+
+  if (!status || status !== 403) {
+    return next(err)
+  } else {
+    res.status(status)
+    res.send({ status, message, success: false })
+  }
+}
+
+function serverError(err: any, req: Request, res: Response, next: NextFunction) {
+  console.log(`
+  ${colors.blue('✖️  ✖️  ✖️  Something went wrong:  ✖️  ✖️  ✖️')}
+  ${colors.bgBlue(err.stack)}
+  ${colors.blue('✖️  ✖️  ✖️')}
+  `)
+
+  res.status(500)
+  res.send('Internal server error')
+}
+
+export default {
+  notFound,
+  serverError,
+  forbiddenError,
+  validationError,
+  unauthorizedError
 }

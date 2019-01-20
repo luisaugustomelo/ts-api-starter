@@ -3,7 +3,7 @@ import cors from "cors"
 import express from "express";
 import path from "path";
 
-import {errorhandler} from "./middleware/errorhandler";
+import errorhandler from "./middleware/errorhandler";
 import indexRoute from "./routes/index";
 import corsOptions from "./utils/cors";
 
@@ -33,7 +33,11 @@ class App {
     // add static paths
     this.app.use(express.static(path.join(__dirname, "public")));
 
-    this.app.use(errorhandler)
+    this.app.use(errorhandler.notFound)
+    this.app.use(errorhandler.validationError)
+    this.app.use(errorhandler.unauthorizedError)
+    this.app.use(errorhandler.forbiddenError)
+    this.app.use(errorhandler.serverError)
     // catch 404 and forward to error handler
     /*this.app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
       console.log('StatusCode: ' + res.statusCode)
