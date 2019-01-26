@@ -11,7 +11,7 @@
 
 ## Requirements
 
-- Node.js 8+ #v10 enable
+- Node.js 8+
 - Docker
 - Make
 
@@ -23,8 +23,6 @@ Main dependencies:
 - Yarn
 - TSlint
 - Jest
-- Dotenv
-- Nodemon # dev
 
 ## Get started with Docker 
 
@@ -109,11 +107,7 @@ _Some files were omitted for simplicity._
 |  ├── middleware   # Handler errors
 |  ├── routes       # Routes definition
 |  └── utils        # Configuration files and others.
-|  └── app.ts       # App structure
-|  └── server.ts    # Server application
 ├── test
-|  └── app.spec.ts  # Tests file
-|  └── request.ts   # Build test environment
 └── docs            # Documentation
 └── Dockerfile      # Custom environment handler
 └── Make            # Command handler
