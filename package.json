@@ -8,7 +8,8 @@
     "build": "tsc",
     "start": "node .",
     "test": "yarn jest --forceExit",
-    "dev": "tsc --watch & nodemon dist"
+    "dev": "tsc --watch & nodemon dist",
+    "debug": "node --inspect ."
   },
   "keywords": [],
   "author": "Luis Augusto Melo Rohten",
