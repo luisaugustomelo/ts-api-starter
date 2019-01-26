@@ -19,6 +19,18 @@ run: compile
 dev:
 	yarn nodemon --watch src --ext ts --exec "make run || exit 1"
 
+# Run prebuild to check for possible errors
+prebuild:
+	yarn prebuild
+
+# Execute build to fix possible errors
+build:
+	yarn build
+
+# Start application
+start:
+	yarn start
+
 # Lint and format code
 lint:
 	# Lint with tslint
