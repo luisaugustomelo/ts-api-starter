@@ -1,6 +1,6 @@
-//import { HttpError, NotFoundError } from "../error"
-import { Request, Response, NextFunction } from 'express';
+// import { HttpError, NotFoundError } from "../error"
 import colors from 'colors'
+import { NextFunction, Request, Response } from 'express';
 
 function notFound(req: Request, res: Response, next: NextFunction) {
   res.status(404)
@@ -13,7 +13,8 @@ function notFound(req: Request, res: Response, next: NextFunction) {
 }
 
 function validationError(err: any,req: Request, res: Response, next: NextFunction) {
-  let { status, message } = err
+  const status = err.status
+  let message = err.message
 
   if (!message) message = 'Validation Error'
 
@@ -26,7 +27,8 @@ function validationError(err: any,req: Request, res: Response, next: NextFunctio
 }
 
 function unauthorizedError(err: any, req: Request, res: Response, next: NextFunction) {
-  let { status, message } = err
+  const status = err.status
+  let message = err.message
 
   if (!message) message = 'Unauthorized'
 
@@ -39,7 +41,8 @@ function unauthorizedError(err: any, req: Request, res: Response, next: NextFunc
 }
 
 function forbiddenError(err: any, req: Request, res: Response, next: NextFunction) {
-  let { status, message } = err
+  const status = err.status
+  let message = err.message
 
   if (!message) message = 'Forbidden'
 
