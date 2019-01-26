@@ -20,8 +20,9 @@
 Main dependencies:
 
 - Typescript
+- Express
 - Yarn
-- TSlint
+- Prettier & TSLint
 - Jest
 
 ## Get started with Docker 
@@ -120,11 +121,19 @@ _Some files were omitted for simplicity._
 
 Write routes, install dependencies, etc.
 
-2. Run tests
+2. Write tests
+
+Remember to use `<>.spec.ts` for test files.
+
+3. Run tests
 
 ```bash
 make test
 ```
+
+## Scripts
+
+All useful scripts are present on the Makefile.
 
 ## License
 
