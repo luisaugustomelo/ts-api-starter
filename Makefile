@@ -60,6 +60,16 @@ bootstrap:
 	# Start local databases and application
 	make dev
 
+# Install docker
+docker-install:
+	sudo apt-get install docker
+
+# docker build
+	sudo docker build -t node-server:8.0 .
+
+# docker start
+	sudo docker run -p 3000:3000 -d node-server:8.0
+
 # ---
 
 rules :=	all	\
