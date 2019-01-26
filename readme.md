@@ -107,6 +107,7 @@ _Some files were omitted for simplicity._
 ├── src
 |  ├── middleware   # Handler errors
 |  ├── routes       # Routes definition
+|  ├── models       # Models definition
 |  └── utils        # Configuration files and others.
 ├── test
 └── docs            # Documentation

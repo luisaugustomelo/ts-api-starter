@@ -11,11 +11,8 @@ app.listen(port,
       return console.log(err);
     }
 
-    return console.log(`
-      ${colors.yellow('Server is listening on port:')}
-      ${colors.red(`${port}`)}  
-      ${colors.green("OK!")}
-    `
+    return console.log(
+      `${colors.yellow('Server is listening on port: ') + colors.red(`${port} - `) + colors.green("OK!")}`
     );
   }
 );
