@@ -7,7 +7,7 @@
 
 ## Deploy
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/luisaugustomelo/ts-api-start/tree/master)
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/luisaugustomelo/ts-api-starter/tree/master)
 
 ## Requirements
 
