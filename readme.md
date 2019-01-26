@@ -1,31 +1,138 @@
-## Skeleton for Node.js applications written in TypeScript
+# Skeleton for Node.js applications written in TypeScript
 
-### Linting
+[![Jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
+[![GNU Make](https://img.shields.io/badge/Built%20with-GNU%20Make-brightgreen.svg)](https://img.shields.io/badge/Built%20with-GNU%20Make-brightgreen.svg)
+
+> Starter project for building a bare-bones TypeScript Node.js server.
+
+## Deploy
+
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/luisaugustomelo/QueroSerBtime/tree/master)
+
+## Requirements
+
+- Node.js 8+ #v10 enable
+- Docker
+- Make
+
+## Dependencies
+
+Main dependencies:
+
+- Typescript
+- Yarn
+- TSlint
+- Jest
+- Dotenv
+- Nodemon # dev
+
+## Get started with Docker 
+
+Steps to run the repository for the first time:
+
+1. Clone the repo:
 
 ```bash
-npm run prebuild #first step
+git clone https://github.com/luisaugustomelo/QueroSerBtime.git <NEW_NAME>
+
+cd <NEW_NAME>
 ```
 
-### Building app
+2. Giving permission to the bash file: 
 
 ```bash
-npm run build #second step
+sudo chmod +x ./start.sh # Not work yet
 ```
 
-### Development
+3. Run out of root mode:
 
 ```bash
-npm run start #thrid step
+./start.sh # Not work yet
 ```
 
-### Running tests
+4. You need put password of root
+
+The application will start the install mode, execute the docker functions and the browser will open firefox (hopefully it has installed :smile: ).
+
+
+## Get started without Docker
+
+Steps to run the repository for the first time:
+
+1. Clone the repo:
 
 ```bash
-npm test
+git clone https://github.com/luisaugustomelo/QueroSerBtime.git <NEW_NAME>
+
+cd <NEW_NAME>
 ```
 
-### Building a container
+2. Check Node.js version:
 
 ```bash
-docker build . #docker has not defined yet
+node -v # Should be v10.0.0+
 ```
+
+3. Linting
+
+```bash
+make prebuild #first step
+```
+
+4. Building app
+
+```bash
+make build #second step
+```
+
+5. Run
+
+```bash
+make bootstrap #thrid step
+```
+
+6. Open Web Application:
+
+```bash
+index.html
+```
+
+_Optional: change the name on the `package.json` file._
+
+## Folder structure
+
+_Some files were omitted for simplicity._
+
+```bash
+.
+├── src
+|  ├── middleware   # Handler errors
+|  ├── routes       # Routes definition
+|  └── utils        # Configuration files and others.
+|  └── app.ts       # App structure
+|  └── server.ts    # Server application
+├── test
+|  └── app.spec.ts  # Tests file
+|  └── request.ts   # Build test environment
+└── docs            # Documentation
+└── Dockerfile      # Custom environment handler
+└── Make            # Command handler
+
+```
+
+## Develop
+
+1. Make changes
+
+Write routes, install dependencies, etc.
+
+2. Run tests
+
+```bash
+make test
+```
+
+## License
+
+MIT © Luis Augusto Melo Rohten
+ 
