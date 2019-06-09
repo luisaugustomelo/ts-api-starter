@@ -51,7 +51,9 @@ sudo chmod +x ./start.sh # Not work yet
 
 4. You need put password of root
 
+```bash
 The application will start the install mode, execute the docker functions and the browser will open firefox (hopefully it has installed :smile: ).
+```
 
 
 ## Get started without Docker
