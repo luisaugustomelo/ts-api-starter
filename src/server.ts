@@ -5,7 +5,7 @@ import "./utils/config";
 
 const port = process.env.PORT || 3000;
 
-app.listen(port,
+app.listen(3000,
   (err: any) => {
     if (err) {
       return console.log(err);
